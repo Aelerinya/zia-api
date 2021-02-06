@@ -8,12 +8,11 @@ namespace zia::api
 
 class NewConnectionEvent : public IEvent
 {
-    static constexpr char event_name[] = "New connection";
-    static inline const EventDescriptor event =
-        event_base<NewConnectionEvent, NewConnectionEvent::event_name>;
+    static constexpr const char name[] { "New connection" };
+    static const EventDescriptor event;
     // TODO: mettre les trucs de asio
 };
 
-// const auto NewConnectionEvent::event =
-// event_base<NewConnectionEvent, NewConnectionEvent::event_name>;
+const EventDescriptor NewConnectionEvent::event { event_base<NewConnectionEvent, name> };
+
 } // namespace zia::api
